@@ -5,6 +5,7 @@
 }
 
 .User-list-title {
+
     background-color: #C5DFFF;
     padding: 20px;
     text-align: center;
@@ -14,7 +15,19 @@
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
+    width: 550px;
+}
 
+.User-details-title {
+    background-color: #C5DFFF;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
 }
 
 /* .user list fo card */
@@ -26,7 +39,7 @@
     padding: 8px;
     border-radius: 4px;
     margin-bottom: 10px;
-    width: 550px;
+
 }
 
 .user-list-card:hover {
@@ -98,4 +111,17 @@
     font-size: 12px;
     margin-bottom: 10px;
     height: 17px;
+}
+
+.loading-div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-text {
+    margin-top: 60px;
+    text-align: center;
 }

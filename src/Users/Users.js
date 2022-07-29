@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './User.css'
 import avtar from '../Img/avater.png'
 import avtard from '../Img/avterd.png'
-
+import Loading from '../Img//loading.png'
 const Users = () => {
     // set and get user info
     const [users, setusers] = useState([])
@@ -22,16 +22,14 @@ const Users = () => {
         setuserdetails(userinfo)
     }
 
-    console.log(userdetails)
-
     return (
         <div>
-            <div className='main-div'>
 
+            <div className='main-div'>
                 <div>
                     <h4 className='User-list-title'>USERS LIST</h4>
                     {
-                        users.length === 10 ? <>
+                        users.length ? <>
                             {
                                 users?.map(user =>
                                     <div onClick={() => userDetailson(user)} onclick={() => userset()}>
@@ -42,16 +40,17 @@ const Users = () => {
                                     </div>
                                 )
                             }
-                        </> :
-                            <div className='user-list-card' >
-                                <img src={avtar} alt="" />
-                                <h3 className='user-name'>No User</h3>
+                        </>
+                            :
+                            <div className='loading-div'>
+                                <img className='App-logo' src={Loading} alt="" />
+                                <h3 className='loading-text'>Loading</h3>
                             </div>
                     }
                 </div>
 
                 <div className='user-details-main'>
-                    <h4 className='User-list-title'>USER DETAILS</h4>
+                    <h4 className='User-details-title'>USER DETAILS</h4>
                     <div className='user-details-info'>
                         <div className='user-details-img-name'>
                             <img className='user-details-img' src={avtard} alt="" />
@@ -78,7 +77,8 @@ const Users = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
+
         </div>
     );
 };
