@@ -31,12 +31,22 @@ const Users = () => {
                 <div>
                     <h4 className='User-list-title'>USERS LIST</h4>
                     {
-                        users?.map(user =>
-                            <div className='user-list-card' onClick={() => userDetailson(user)} onclick={() => userset()}>
+                        users.length === 10 ? <>
+                            {
+                                users?.map(user =>
+                                    <div onClick={() => userDetailson(user)} onclick={() => userset()}>
+                                        <div className='user-list-card'>
+                                            <img src={avtar} alt="" />
+                                            <h3 className='user-name'>{user?.profile?.username}</h3>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </> :
+                            <div className='user-list-card' >
                                 <img src={avtar} alt="" />
-                                <h3 className='user-name'>{user?.profile?.username}</h3>
+                                <h3 className='user-name'>No User</h3>
                             </div>
-                        )
                     }
                 </div>
 
@@ -45,20 +55,26 @@ const Users = () => {
                     <div className='user-details-info'>
                         <div className='user-details-img-name'>
                             <img className='user-details-img' src={avtard} alt="" />
-                            <p>{userdetails?.profile?.username}</p>
-                            <p className='user-details-boi'>Reiciendis quam fuga sunt ea debitis nemo. Reiciendis quam fuga sunt ea debitis nemo.</p>
+                            {
+                                userdetails.profile ? <p>{userdetails?.profile?.username}</p> : <p>User Name</p>
+                            }
+                            {
+                                userdetails.profile ? <p className='user-details-boi'>{userdetails.Bio}</p> : <p className='user-details-boi'></p>
+                            }
                         </div>
                         <div>
                             <small className='details-title'>Full Name</small>
-                            <div className='user-full-name'>Neoma Schaefer</div>
+                            {
+                                userdetails.profile ? <div className='user-full-name'>{`${userdetails?.profile?.firstName}  ${userdetails?.profile?.lastName}`}</div> : <div className='user-full-name'></div>
+                            }
                         </div>
                         <div>
                             <small className='details-title'>Job Title</small>
-                            <div className='user-full-name'>Regional Marketing Officer</div>
+                            <div className='user-full-name'>{userdetails?.jobTitle}</div>
                         </div>
                         <div>
                             <small className='details-title'>Email</small>
-                            <div className='user-full-name'>theron25@hotmail.com</div>
+                            <div className='user-full-name'>{userdetails?.profile?.email}</div>
                         </div>
                     </div>
                 </div>
